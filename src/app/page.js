@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence, scale } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { CommandLineIcon, ArrowDownTrayIcon, Bars3Icon, XMarkIcon, BuildingStorefrontIcon, CurrencyDollarIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/solid';
 import * as THREE from 'three';
@@ -55,28 +55,46 @@ const HeroAnimation = () => {
     const loader = new GLTFLoader();
 
     const modelPaths = [
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb',
-      '/react_logo_circle.glb'
+      {
+        path: '/3D/react_logo_circle.glb',
+        scale: 1
+      },
+      {
+        path: '/3D/aws_logo.glb',
+        scale: 0.3
+      },
+      {
+        path: '/3D/css_logo.glb',
+        scale: 0.01
+      },
+      {
+        path: '/3D/html_logo.glb',
+        scale: 0.01
+      },
+      {
+        path: '/3D/posgresql.glb',
+        scale: 3
+      },
+      {
+        path: '/3D/python.glb',
+        scale: 0.04
+      },
+      {
+        path: '/3D/twcss.glb',
+        scale: 10
+      },
+
     ];
 
-    modelPaths.forEach(path => {
+    modelPaths.forEach(logo => {
       loader.load(
-        path,
+        logo.path,
         // onLoad callback
         (gltf) => {
           const model = gltf.scene;
 
 
-          model.scale.set(1, 1, 1);
+          model.scale.set(logo.scale, logo.scale, logo.scale);
           model.position.set(
             (Math.random() - 0.5) * 25,
             (Math.random() - 0.5) * 25,
@@ -101,7 +119,7 @@ const HeroAnimation = () => {
         undefined,
 
         (error) => {
-          console.error(`An error happened while loading ${path}`, error);
+          console.error(`An error happened while loading ${logo.path}`, error);
         }
       );
     });
@@ -224,35 +242,34 @@ export default function Portfolio() {
           </nav>
 
 
-          <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative">
-            <HeroAnimation />
-            <div className="relative z-10">
-              <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, type: 'spring' }} className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Amonthep Tanlaeo</span>
-              </motion.h1>
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl">Fullstack Developer ผู้หลงใหลในการสร้างสรรค์เว็บแอปพลิเคชันที่สวยงามและมีประสิทธิภาพ</motion.p>
-              <motion.a href="#projects" onClick={handleNavClick} initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 1 }} className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30">ดูผลงานของฉัน</motion.a>
-            </div>
-          </section>
-
-          <main className="container mx-auto relative z-10">
 
 
+          <main className="container mx-auto relative z-10 cursor-default">
+            <section id="hero" className=" min-h-screen flex flex-col justify-center items-center text-center px-4 relative cursor-default">
+              <HeroAnimation />
+              <div className="relative z-10">
+                <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, type: 'spring' }} className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-4">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Amonthep Tanlaeo</span>
+                </motion.h1>
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl">Fullstack Developer ผู้หลงใหลในการสร้างสรรค์เว็บแอปพลิเคชันที่สวยงามและมีประสิทธิภาพ</motion.p>
+                <motion.a href="#projects" onClick={handleNavClick} initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 1 }} className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30">ดูผลงานของฉัน</motion.a>
+              </div>
+            </section>
             <AnimatedSection id="about">
-              <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">About Me</h2>
-              <motion.div variants={projectVariants} className="max-w-4xl mx-auto text-center text-gray-200 text-lg leading-relaxed bg-gray-800/50 p-8 rounded-lg">
+              <h2 className="cursor-default text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">About Me</h2>
+              <motion.div variants={projectVariants} className="cursor-default max-w-4xl mx-auto text-center text-gray-200 text-lg leading-relaxed bg-gray-800/50 p-8 rounded-lg">
                 <p>สวัสดีครับ! ผม อามรเทพ ทันแล้ว เป็นนักพัฒนา Fullstack ที่มีประสบการณ์ในการสร้างและปรับขนาดเว็บแอปพลิเคชันที่ซับซ้อน ผมเชื่อในการเรียนรู้ตลอดชีวิตและมักจะมองหาเทคโนโลยีใหม่ๆ เพื่อมาปรับปรุงงานของผมเสมอ</p>
               </motion.div>
             </AnimatedSection>
 
-            <AnimatedSection id="skills">
-              <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">My Skills</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <AnimatedSection  id="skills">
+              <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 cursor-default">My Skills</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-default">
                 {Object.entries(skills).map(([category, skillList]) => (
                   <motion.div key={category} variants={projectVariants} className="bg-gray-800/50 p-6 rounded-lg transition-all duration-300 hover:bg-gray-800/80">
                     <h3 className="text-2xl font-bold mb-4 text-cyan-400">{category}</h3>
                     <ul>
-                      {skillList.map(skill => (<motion.li key={skill} className="mb-2 text-gray-300 flex items-center" whileHover={{ x: 5, color: '#00ffff' }} transition={{ duration: 0.2 }}><CommandLineIcon className="h-5 w-5 mr-3 text-purple-400" />{skill}</motion.li>))}
+                      {skillList.map(skill => (<motion.li key={skill} className="mb-2 text-gray-300 flex items-center " whileHover={{ x: 5, color: '#00ffff' }} transition={{ duration: 0.2 }}><CommandLineIcon className="h-5 w-5 mr-3 text-purple-400" />{skill}</motion.li>))}
                     </ul>
                   </motion.div>
                 ))}
@@ -288,7 +305,7 @@ export default function Portfolio() {
             </AnimatedSection>
           </main>
 
-          <footer className="text-center py-8 text-gray-500 border-t border-gray-800 mt-16">
+          <footer className="text-center py-8 text-gray-500 border-t border-gray-800 mt-16 cursor-default">
             <p>&copy; {new Date().getFullYear()} Amonthep Tanlaeo. All Rights Reserved.</p>
           </footer>
         </motion.div>
