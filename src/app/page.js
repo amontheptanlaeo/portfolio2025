@@ -215,10 +215,10 @@ export default function Portfolio() {
     { title: "Maintenance & DevOps (CI/CD, AWS)", description: "ดูแลและปรับปรุงโปรเจกต์กว่า 25+ Repositories รวมถึงแก้ไข Pipeline CI/CD (Python/Gitlab), จัดการ AWS Lambda (JavaScript) และสร้าง/แก้ไข API Services ทั้งหมดขององค์กร", icon: <WrenchScrewdriverIcon className="h-8 w-8 text-emerald-400" />, tags: ["Maintenance", "DevOps", "CI/CD", "AWS Lambda", "API"] }
   ];
   const skills = {
-    "Frontend": ["React.JS", "Next.JS", "Vue.JS", "React Native", "Tailwind CSS", "AntD", "MeterialUI", "HTML/CSS"],
-    "Backend": ["Node.JS", "NestJS", "Python", "Microservices", "REST API"],
-    "Databases": ["PostgreSQL", "MySQL", "MongoDB", "NoSQL", "Amazon RDS"],
-    "DevOps & Cloud": ["AWS", "Google Cloud", "Docker", "CI/CD", "Gitlab", "Nginx", "PM2", "AWS Lambda", "AWS S3", "AWS EC2"]
+    "Frontend": ["React.JS", "Next.JS", "Vue.JS", "React Native", "Tailwind CSS", "AntD", "MeterialUI"],
+    "Backend": ["Node.JS", "NestJS", "Python", "REST API"],
+    "Databases": ["PostgreSQL", "MySQL", "MsSQL", "MongoDB", "NoSQL"],
+    "DevOps & Cloud": ["AWS", "Google Cloud", "Docker", "CI/CD", "Gitlab", "Nginx", "PM2"]
   };
 
   return (
@@ -251,18 +251,18 @@ export default function Portfolio() {
                 <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, type: 'spring' }} className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-4">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Amonthep Tanlaeo</span>
                 </motion.h1>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl">Fullstack Developer ผู้หลงใหลในการสร้างสรรค์เว็บแอปพลิเคชันที่สวยงามและมีประสิทธิภาพ</motion.p>
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl">Fullstack Developer ที่มีประสบการณ์ในการพัฒนาระบบแบบ End-to-End</motion.p>
                 <motion.a href="#projects" onClick={handleNavClick} initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 1 }} className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/30">ดูผลงานของฉัน</motion.a>
               </div>
             </section>
             <AnimatedSection id="about">
               <h2 className="cursor-default text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">About Me</h2>
               <motion.div variants={projectVariants} className="cursor-default max-w-4xl mx-auto text-center text-gray-200 text-lg leading-relaxed bg-gray-800/50 p-8 rounded-lg">
-                <p>สวัสดีครับ! ผม อามรเทพ ทันแล้ว เป็นนักพัฒนา Fullstack ที่มีประสบการณ์ในการสร้างและปรับขนาดเว็บแอปพลิเคชันที่ซับซ้อน ผมเชื่อในการเรียนรู้ตลอดชีวิตและมักจะมองหาเทคโนโลยีใหม่ๆ เพื่อมาปรับปรุงงานของผมเสมอ</p>
+                <p>สวัสดีครับ! ผม อามรเทพ ทันแล้ว เป็นนักพัฒนา Fullstack ที่มีประสบการณ์ในการสร้างและปรับเว็บแอปพลิเคชันที่ซับซ้อน ผมชอบในนการเรียนรู้และมักจะมองหาเทคโนโลยีใหม่ๆ เพื่อมาปรับปรุงงานของผมเสมอ</p>
               </motion.div>
             </AnimatedSection>
 
-            <AnimatedSection  id="skills">
+            <AnimatedSection id="skills">
               <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 cursor-default">My Skills</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-default">
                 {Object.entries(skills).map(([category, skillList]) => (
@@ -300,7 +300,7 @@ export default function Portfolio() {
                 <motion.a href="mailto:amontheptanlaeo111@gmail.com" whileHover={{ scale: 1.05 }} className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-3 px-8 rounded-full transition-transform transform shadow-lg">Email Me</motion.a>
                 <motion.a href="https://github.com/amontheptanlaeo" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform">View GitHub</motion.a>
                 <motion.a href="https://www.linkedin.com/in/amonthep-tanlaeo" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform">View LinkedIn</motion.a>
-                <motion.a href="/amonthep-tanlaeo-resume.pdf" download whileHover={{ scale: 1.05 }} className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform flex items-center justify-center gap-2"><ArrowDownTrayIcon className="h-5 w-5" />Download CV</motion.a>
+                <motion.a href="/CV/amonthep-tanlaeo-resume.pdf" download whileHover={{ scale: 1.05 }} className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform flex items-center justify-center gap-2"><ArrowDownTrayIcon className="h-5 w-5" />Download CV</motion.a>
               </div>
             </AnimatedSection>
           </main>
