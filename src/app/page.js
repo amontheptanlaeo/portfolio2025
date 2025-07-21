@@ -295,7 +295,7 @@ export default function Portfolio() {
 
             <AnimatedSection id="contact">
               <h2 className="text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Get In Touch</h2>
-              <p className="text-center text-gray-300 mb-8 max-w-2xl mx-auto">ผมกำลังมองหาโอกาสใหม่ๆ อยู่เสมอ หากคุณมีโปรเจกต์ที่น่าสนใจ หรือต้องการพูดคุย สามารถติดต่อผมได้เลยครับ</p>
+              <p className="text-center text-gray-300 mb-8 max-w-2xl mx-auto">ผมกำลังมองหาโอกาสใหม่ๆ อยู่เสมอ สามารถติดต่อผมผ่านช่องทางตามนี้ได้เลยครับได้</p>
               <div className="text-center flex flex-wrap justify-center items-center gap-6">
                 <motion.a href="mailto:amontheptanlaeo111@gmail.com" whileHover={{ scale: 1.05 }} className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-3 px-8 rounded-full transition-transform transform shadow-lg">Email Me</motion.a>
                 <motion.a href="https://github.com/amontheptanlaeo" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform">View GitHub</motion.a>
